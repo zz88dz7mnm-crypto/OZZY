@@ -97,11 +97,124 @@
     </div>
   </section>
 
-  <!-- ===== CARTA (se completa en el próximo commit) ===== -->
+  <!-- ===== CARTA ===== -->
   <section class="menu" id="carta">
     <div class="container">
       <h2 class="section-title reveal">La Carta</h2>
-      <!-- TODO: tabs + tarjetas de productos -->
+      <p class="section-subtitle reveal">Rolls directos, especiales y gohan bowls. Elegí tu categoría.</p>
+
+      <div class="menu__tabs reveal" role="tablist" aria-label="Categorías del menú">
+        <button class="menu__tab is-active" data-target="entradas" role="tab" aria-selected="true">Entradas</button>
+        <button class="menu__tab" data-target="especiales" role="tab" aria-selected="false">Especiales</button>
+        <button class="menu__tab" data-target="gohan" role="tab" aria-selected="false">Gohan</button>
+        <button class="menu__tab" data-target="simples" role="tab" aria-selected="false">Rolls Simples</button>
+        <button class="menu__tab" data-target="premium" role="tab" aria-selected="false">Rolls Premium</button>
+        <button class="menu__tab" data-target="extras" role="tab" aria-selected="false">Extras</button>
+      </div>
+
+      <div class="menu__panels">
+
+        <div class="menu__panel is-active" id="entradas" role="tabpanel">
+          <div class="menu__grid">
+            <article class="dish reveal">
+              <div class="dish__top"><h3>Karaage de Langostinos</h3><span class="dish__price">$6.500</span></div>
+              <p>Langostinos marinados estilo japonés, dorados y crocantes.</p>
+              <span class="dish__note">3 unidades</span>
+            </article>
+            <article class="dish reveal">
+              <div class="dish__top"><h3>Coliflor Crocante</h3><span class="dish__price">$5.000</span></div>
+              <p>Coliflor marinada estilo karaage, dorada y crocante.</p>
+            </article>
+            <article class="dish reveal">
+              <div class="dish__top"><h3>Ozzy Pockets</h3><span class="dish__price">$2.000</span></div>
+              <p>Empanaditas de carne o veggies.</p>
+              <span class="dish__note">c/u</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="menu__panel" id="especiales" role="tabpanel">
+          <p class="menu__panel-lead reveal">Experiencia completa</p>
+          <div class="menu__grid">
+            <article class="dish dish--feature reveal">
+              <div class="dish__top"><h3>Ozzy Dog <span class="dish__sub">(Roll completo)</span></h3><span class="dish__price">$15.000</span></div>
+              <p>Salmón o langostinos, palta cremosa y Phila. Dorado y crocante.</p>
+            </article>
+            <article class="dish reveal">
+              <div class="dish__top"><h3>Nigiri Selection</h3><span class="dish__price">$2.000</span></div>
+              <p>Selección de nigiris.</p>
+              <span class="dish__note">c/u</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="menu__panel" id="gohan" role="tabpanel">
+          <div class="menu__grid">
+            <article class="dish reveal">
+              <div class="dish__top"><h3>Gohan Ozzy</h3><span class="dish__price">$15.000</span></div>
+              <p>Arroz, salmón, langostinos apanados, palta, kanikama, Phila y verdeo.</p>
+            </article>
+            <article class="dish reveal">
+              <div class="dish__top"><h3>Gohan Básico</h3><span class="dish__price">$13.000</span></div>
+              <p>Arroz, pollo crocante, palta, Phila y verdeo.</p>
+            </article>
+          </div>
+          <p class="menu__extra reveal">✨ Agregale láminas de Tamago por <strong>+$700</strong></p>
+        </div>
+
+        <div class="menu__panel" id="simples" role="tabpanel">
+          <p class="menu__panel-lead reveal">Directos y equilibrados · $6.500 c/u</p>
+          <div class="menu__grid">
+            <article class="dish reveal">
+              <h3>Langostino Fusion Roll</h3>
+              <p>Langostino crocante y Phila.</p>
+            </article>
+            <article class="dish reveal">
+              <h3>Veggie Roll</h3>
+              <p>Zanahoria frita, repollo y pepino.</p>
+            </article>
+            <article class="dish reveal">
+              <h3>Kanikama Roll</h3>
+              <p>Kanikama, Phila y palta cremosa.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="menu__panel" id="premium" role="tabpanel">
+          <p class="menu__panel-lead reveal">Un paso más allá · $7.500 c/u</p>
+          <div class="menu__grid">
+            <article class="dish reveal">
+              <h3>SPF Roll</h3>
+              <p>Salmón fresco, palta cremosa y Phila.</p>
+            </article>
+            <article class="dish reveal">
+              <h3>Ebi Philly Roll</h3>
+              <p>Langostino marinado, palta cremosa y Phila.</p>
+            </article>
+            <article class="dish reveal">
+              <h3>Veggie Karaage Roll</h3>
+              <p>Berenjena crocante, palta cremosa y Phila.</p>
+            </article>
+            <article class="dish reveal">
+              <h3>Tamago Roll <span class="dish__sub">(Egg Roll)</span></h3>
+              <p>Lámina de Tamago, salmón fresco, palta cremosa y Phila.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="menu__panel" id="extras" role="tabpanel">
+          <div class="menu__chips">
+            <span class="chip reveal">🥢 Pote de salsa de soja</span>
+            <span class="chip reveal">🥢 Pote de salsa Buenos Aires</span>
+            <span class="chip reveal">🥢 Pote de salsa Teriyaki</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="menu__cta reveal">
+        ¿Ya sabés qué pedir? <a href="#pedi">Elegí cómo lo querés recibir ↓</a>
+      </p>
     </div>
   </section>
 
