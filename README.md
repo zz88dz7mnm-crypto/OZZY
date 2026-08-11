@@ -48,6 +48,6 @@ Sitio en construcción activa, commit a commit:
 - [x] Estructura base + SEO/meta tags
 - [x] Diseño (hero, navbar, sistema de colores/tipografía)
 - [x] Carta completa con precios
-- [ ] Pedí (WhatsApp / Take Away / PedidosYa) + Ubicación
+- [x] Pedí (WhatsApp / Take Away / PedidosYa) + Ubicación
 - [ ] Animaciones e interacciones
 - [ ] Responsive final + pulido

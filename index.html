@@ -218,28 +218,97 @@
     </div>
   </section>
 
-  <!-- ===== PEDÍ (se completa en un próximo commit) ===== -->
+  <!-- ===== PEDÍ ===== -->
   <section class="order" id="pedi">
     <div class="container">
       <h2 class="section-title reveal">Pedí como quieras</h2>
-      <!-- TODO: tarjetas WhatsApp / Take Away / PedidosYa -->
+      <p class="section-subtitle reveal">Tres formas directas de llegar a tu sushi. Elegí la que más te acomode.</p>
+
+      <div class="order__grid">
+        <article class="order-card reveal">
+          <span class="order-card__icon">💬</span>
+          <h3>WhatsApp</h3>
+          <p>Pedido directo. Nos escribís y armamos tu pedido al toque.</p>
+          <a class="btn btn--primary btn--block" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1" target="_blank" rel="noopener">
+            Pedir por WhatsApp
+          </a>
+        </article>
+
+        <article class="order-card order-card--feature reveal">
+          <span class="order-card__icon">🛍️</span>
+          <h3>Take Away</h3>
+          <p>Armá tu pedido online, pagalo y pasá a retirarlo sin esperas.</p>
+          <a class="btn btn--primary btn--block" href="https://ozzy-store.web.app/" target="_blank" rel="noopener">
+            Ir a la tienda
+          </a>
+        </article>
+
+        <article class="order-card reveal">
+          <span class="order-card__icon">🛵</span>
+          <h3>PedidosYa</h3>
+          <p>Pedilo por la app y te lo llevamos hasta la puerta.</p>
+          <a class="btn btn--ghost btn--block" href="https://www.pedidosya.com.ar/restaurantes/cordoba/ozzy-sushi-ad90231d-5bea-4f4a-b761-a3e93f2b5dde-menu" target="_blank" rel="noopener">
+            Ver en PedidosYa
+          </a>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- ===== UBICACIÓN (se completa en un próximo commit) ===== -->
+  <!-- ===== UBICACIÓN ===== -->
   <section class="location" id="ubicacion">
-    <div class="container">
-      <h2 class="section-title reveal">Dónde estamos</h2>
-      <!-- TODO: mapa + dirección -->
+    <div class="container location__inner">
+      <div class="location__info reveal">
+        <h2 class="section-title" style="text-align:left">Dónde estamos</h2>
+        <p class="location__address">📍 Ituzaingó 791, X5000 Córdoba, Argentina</p>
+        <p class="location__hint">Sushi al paso: pedís, retirás y listo. También delivery por PedidosYa.</p>
+        <div class="location__actions">
+          <a class="btn btn--primary" href="https://www.google.com/maps?q=Ozzy,+Ituzaing%C3%B3+791,+X5000+C%C3%B3rdoba&ftid=0x9432a3458025d377:0x1c87f4efc503ef68" target="_blank" rel="noopener">
+            Cómo llegar
+          </a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/ozzysushi/" target="_blank" rel="noopener">
+            📸 Seguinos en Instagram
+          </a>
+        </div>
+      </div>
+      <div class="location__map reveal">
+        <iframe
+          src="https://www.google.com/maps?q=Ozzy,+Ituzaing%C3%B3+791,+X5000+C%C3%B3rdoba&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación de OZZY Sushi en Córdoba"
+        ></iframe>
+      </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER (se completa en un próximo commit) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container">
-      <p>© <span id="year"></span> OZZY Sushi — Córdoba, Argentina</p>
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">OZZY</span>
+        <p>No es un sushi cualquiera. Es OZZY 🔥<br />Sushi moderno · Street · Fusión · Córdoba</p>
+      </div>
+
+      <div class="footer__links">
+        <a href="#carta">Carta</a>
+        <a href="#pedi">Pedí</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="https://www.instagram.com/ozzysushi/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <p class="footer__copy">© <span id="year"></span> OZZY Sushi — Ituzaingó 791, Córdoba, Argentina</p>
     </div>
   </footer>
+
+  <!-- ===== WhatsApp flotante ===== -->
+  <a
+    class="whatsapp-float"
+    href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1"
+    target="_blank"
+    rel="noopener"
+    aria-label="Pedir por WhatsApp"
+  >💬</a>
 
   <script src="js/main.js" defer></script>
 </body>

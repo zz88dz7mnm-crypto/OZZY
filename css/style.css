@@ -407,17 +407,91 @@ section { padding: 5rem 0; }
 .menu__cta a { color: var(--flame-1); font-weight: 600; }
 .menu__cta a:hover { text-decoration: underline; }
 
+/* ---------- Pedí ---------- */
+.order__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+
+.order-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.order-card:hover { transform: translateY(-8px); border-color: rgba(255, 138, 30, .5); box-shadow: 0 24px 44px -26px rgba(0, 0, 0, .65); }
+.order-card--feature {
+  border-color: rgba(255, 138, 30, .55);
+  background: linear-gradient(165deg, var(--card), rgba(255, 61, 31, .1));
+  transform: scale(1.03);
+}
+.order-card__icon { display: block; font-size: 2.6rem; margin-bottom: 1rem; }
+.order-card h3 { font-family: var(--font-body); font-weight: 700; font-size: 1.2rem; color: var(--paper); margin-bottom: .5rem; }
+.order-card p { font-size: .92rem; margin-bottom: 1.6rem; min-height: 3em; }
+
+/* ---------- Ubicación ---------- */
+.location__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.location__address { font-size: 1.15rem; color: var(--paper); font-weight: 600; margin-top: 1rem; }
+.location__hint { margin-top: .6rem; max-width: 42ch; }
+.location__actions { display: flex; gap: 1rem; margin-top: 1.8rem; flex-wrap: wrap; }
+.location__map {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+}
+.location__map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(.15) contrast(1.05); }
+
 /* ---------- Footer ---------- */
 .footer {
-  padding: 2.2rem 0;
-  text-align: center;
+  padding: 3rem 0 2.2rem;
   color: var(--muted);
   font-size: .9rem;
   border-top: 1px solid var(--line);
 }
+.footer__inner { display: flex; flex-direction: column; align-items: center; gap: 1.4rem; text-align: center; }
+.footer__brand p { margin-top: .5rem; font-size: .88rem; }
+.footer__links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+.footer__links a:hover { color: var(--flame-1); }
+.footer__copy { font-size: .82rem; }
+
+/* ---------- WhatsApp flotante ---------- */
+.whatsapp-float {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 90;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, var(--flame-1), var(--flame-2));
+  box-shadow: 0 14px 30px -10px rgba(255, 61, 31, .75);
+  animation: pulseFloat 2.4s ease-in-out infinite;
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+@keyframes pulseFloat {
+  0%, 100% { box-shadow: 0 14px 30px -10px rgba(255, 61, 31, .75); }
+  50% { box-shadow: 0 14px 30px -6px rgba(255, 61, 31, 1); }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
+  .location__inner { grid-template-columns: 1fr; }
+  .location__map { order: -1; }
+  .order-card--feature { transform: none; }
+
   .nav-links {
     position: fixed;
     inset: var(--nav-h) 0 auto 0;
