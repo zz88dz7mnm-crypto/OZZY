@@ -115,20 +115,6 @@ p { margin: 0; color: var(--muted); }
 .btn--lg { padding: 1.05rem 2.1rem; font-size: 1.05rem; }
 .btn--block { width: 100%; }
 
-/* ---------- Badges ---------- */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
-  padding: .5rem 1.05rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(253, 250, 245, .03);
-  font-size: .9rem;
-  font-weight: 600;
-  color: var(--flame-1);
-}
-
 /* ---------- Navbar ---------- */
 .navbar {
   position: sticky;
@@ -269,33 +255,6 @@ p { margin: 0; color: var(--muted); }
   justify-content: center;
   margin-top: 2.2rem;
   flex-wrap: wrap;
-}
-
-/* ---------- Concept (franja compacta) ---------- */
-.concept { padding: 2.8rem 0 3.2rem; text-align: center; position: relative; }
-.concept__inner { position: relative; max-width: 720px; }
-.concept__badges { display: flex; gap: .7rem; justify-content: center; margin-bottom: 1.2rem; flex-wrap: wrap; }
-.concept__lead { max-width: 48ch; margin: 0 auto; font-size: 1.05rem; color: var(--paper); opacity: .85; }
-
-.concept__gallery { display: none; }
-
-@media (min-width: 900px) {
-  .concept__gallery { display: block; }
-  .concept__photo {
-    position: absolute;
-    width: 132px;
-    height: auto;
-    border-radius: 16px;
-    border: 4px solid var(--ink-soft);
-    box-shadow: 0 20px 40px -18px rgba(0, 0, 0, .7);
-    animation: photoFloat 7s ease-in-out infinite;
-  }
-  .concept__photo--1 { top: -10px; left: -6%; transform: rotate(-8deg); }
-  .concept__photo--2 { bottom: -18px; right: -4%; transform: rotate(7deg); animation-delay: 1.2s; }
-}
-@keyframes photoFloat {
-  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
-  50% { transform: translateY(-12px) rotate(var(--r, 0deg)); }
 }
 
 /* ---------- Section title ---------- */
