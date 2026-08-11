@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Navbar: fondo sólido al scrollear ---------- */
   const navbar = document.getElementById('navbar');
+  /* ---------- Botón flotante de WhatsApp: solo aparece al scrollear ---------- */
+  const waFloat = document.querySelector('.whatsapp-float');
   const onScroll = () => {
-    if (!navbar) return;
-    navbar.classList.toggle('is-scrolled', window.scrollY > 12);
+    if (navbar) navbar.classList.toggle('is-scrolled', window.scrollY > 12);
+    if (waFloat) waFloat.classList.toggle('is-visible', window.scrollY > 400);
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });

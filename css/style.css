@@ -441,8 +441,12 @@ section { padding: 4.5rem 0; }
   background: linear-gradient(135deg, var(--whatsapp-1), var(--whatsapp-2));
   box-shadow: 0 14px 30px -10px rgba(18, 140, 126, .75);
   animation: pulseFloat 2.4s ease-in-out infinite;
-  transition: transform .25s ease;
+  transition: transform .25s ease, opacity .3s ease, visibility .3s;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(.85) translateY(8px);
 }
+.whatsapp-float.is-visible { opacity: 1; visibility: visible; transform: scale(1) translateY(0); }
 .whatsapp-float:hover { transform: scale(1.08); }
 @keyframes pulseFloat {
   0%, 100% { box-shadow: 0 14px 30px -10px rgba(18, 140, 126, .75); }
