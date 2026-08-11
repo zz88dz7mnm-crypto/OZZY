@@ -49,5 +49,5 @@ Sitio en construcción activa, commit a commit:
 - [x] Diseño (hero, navbar, sistema de colores/tipografía)
 - [x] Carta completa con precios
 - [x] Pedí (WhatsApp / Take Away / PedidosYa) + Ubicación
-- [ ] Animaciones e interacciones
+- [x] Animaciones e interacciones
 - [ ] Responsive final + pulido
