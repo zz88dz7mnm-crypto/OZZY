@@ -5,11 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Navbar: fondo sólido al scrollear ---------- */
   const navbar = document.getElementById('navbar');
-  /* ---------- Botón flotante de WhatsApp: solo aparece al scrollear ---------- */
+  /* ---------- Botón flotante de WhatsApp: recién aparece al pasar el hero ---------- */
+  // Usamos la altura del propio hero (no un número fijo) para que nunca
+  // quede superpuesto con sus botones, sea cual sea el tamaño de pantalla.
+  const hero = document.querySelector('.hero');
   const waFloat = document.querySelector('.whatsapp-float');
   const onScroll = () => {
     if (navbar) navbar.classList.toggle('is-scrolled', window.scrollY > 12);
-    if (waFloat) waFloat.classList.toggle('is-visible', window.scrollY > 400);
+    if (waFloat) {
+      const threshold = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
+      waFloat.classList.toggle('is-visible', window.scrollY > threshold - 80);
+    }
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
