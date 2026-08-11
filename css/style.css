@@ -1,0 +1,94 @@
+/* OZZY Sushi — base styles (se expande en próximos commits) */
+:root {
+  --ink: #0b0b0d;
+  --paper: #fdfaf5;
+  --flame-1: #ff7a1a;
+  --flame-2: #ff3d1f;
+  --gold: #ffc24b;
+  --muted: #9a958d;
+
+  --font-display: 'Bungee', system-ui, sans-serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
+
+  --container: 1160px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  margin: 0;
+}
+
+p { margin: 0; color: var(--muted); }
+
+a { color: inherit; text-decoration: none; }
+
+.text-flame {
+  background: linear-gradient(90deg, var(--flame-1), var(--flame-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  padding: .9rem 1.6rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: linear-gradient(90deg, var(--flame-1), var(--flame-2));
+  color: #fff;
+}
+
+.btn--ghost {
+  border-color: rgba(253, 250, 245, .3);
+  color: var(--paper);
+}
+
+.btn--sm { padding: .55rem 1.1rem; font-size: .9rem; }
+.btn--lg { padding: 1rem 2rem; font-size: 1.05rem; }
+
+/* Navbar (placeholder, se completa en el próximo commit) */
+.navbar { position: sticky; top: 0; z-index: 50; padding: 1rem 0; }
+.navbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: flex; align-items: baseline; gap: .4rem; font-family: var(--font-display); }
+.brand__mark { font-size: 1.4rem; color: var(--flame-1); }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-toggle { display: none; }
+
+/* Hero (placeholder, se completa en el próximo commit) */
+.hero { padding: 8rem 0 6rem; text-align: center; }
+.hero__title { font-size: clamp(2.2rem, 6vw, 4rem); margin-bottom: 1rem; }
+.hero__subtitle { max-width: 40ch; margin-inline: auto; }
+.hero__actions { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+
+section { padding: 4rem 0; }
+.section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 2rem; }
+
+.footer { padding: 2rem 0; text-align: center; color: var(--muted); font-size: .9rem; }

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>OZZY Sushi · Sushi moderno, Street &amp; Fusión en Córdoba</title>
+  <meta name="description" content="No es un sushi cualquiera. Es OZZY 🔥 Rápido. Rico. Distinto. Sushi moderno, street y fusión en el corazón de Córdoba. Pedí por WhatsApp, PedidosYa o Take Away." />
+  <meta name="theme-color" content="#0b0b0d" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OZZY Sushi" />
+  <meta property="og:title" content="OZZY Sushi · Sushi moderno, Street & Fusión" />
+  <meta property="og:description" content="No es un sushi cualquiera. Es OZZY 🔥 Rápido. Rico. Distinto. Pedí por WhatsApp, PedidosYa o Take Away." />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0d'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' font-family='Arial,sans-serif'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="brand">
+        <span class="brand__mark">OZZY</span>
+        <span class="brand__tag">sushi</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#carta">Carta</a>
+        <a href="#pedi">Pedí</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+
+      <a class="btn btn--primary btn--sm nav-cta" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1" target="_blank" rel="noopener">
+        Pedí ahora
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__floaters" aria-hidden="true">
+      <span class="floater floater--1">🍣</span>
+      <span class="floater floater--2">🥢</span>
+      <span class="floater floater--3">🍱</span>
+      <span class="floater floater--4">🔥</span>
+      <span class="floater floater--5">🍤</span>
+    </div>
+
+    <div class="container hero__content">
+      <p class="hero__eyebrow reveal">Sushi moderno · Street · Fusión</p>
+      <h1 class="hero__title reveal">
+        No es un sushi cualquiera.<br />
+        Es <span class="text-flame">OZZY</span> 🔥
+      </h1>
+      <p class="hero__subtitle reveal">Rápido. Rico. Distinto. El sushi al paso que le faltaba a Córdoba.</p>
+
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary btn--lg" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1" target="_blank" rel="noopener">
+          Pedí por WhatsApp
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#carta">Ver la carta</a>
+      </div>
+    </div>
+
+    <a href="#carta" class="scroll-cue" aria-label="Bajar a la carta"><span></span></a>
+  </section>
+
+  <!-- ===== CONCEPTO ===== -->
+  <section class="concept" id="concepto">
+    <div class="container concept__inner">
+      <div class="concept__badges reveal">
+        <span class="badge">⚡ Rápido</span>
+        <span class="badge">🍣 Rico</span>
+        <span class="badge">🔥 Distinto</span>
+      </div>
+      <h2 class="reveal">Sushi al paso, hecho como se debe</h2>
+      <p class="reveal">
+        Nada de vueltas: rollos directos, karaage crocante y combinaciones pensadas
+        para comer rápido sin resignar sabor. Así piensa OZZY el sushi en Córdoba.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CARTA (se completa en el próximo commit) ===== -->
+  <section class="menu" id="carta">
+    <div class="container">
+      <h2 class="section-title reveal">La Carta</h2>
+      <!-- TODO: tabs + tarjetas de productos -->
+    </div>
+  </section>
+
+  <!-- ===== PEDÍ (se completa en un próximo commit) ===== -->
+  <section class="order" id="pedi">
+    <div class="container">
+      <h2 class="section-title reveal">Pedí como quieras</h2>
+      <!-- TODO: tarjetas WhatsApp / Take Away / PedidosYa -->
+    </div>
+  </section>
+
+  <!-- ===== UBICACIÓN (se completa en un próximo commit) ===== -->
+  <section class="location" id="ubicacion">
+    <div class="container">
+      <h2 class="section-title reveal">Dónde estamos</h2>
+      <!-- TODO: mapa + dirección -->
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (se completa en un próximo commit) ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> OZZY Sushi — Córdoba, Argentina</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
