@@ -4,18 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>OZZY Sushi · Sushi moderno, Street &amp; Fusión en Córdoba</title>
-  <meta name="description" content="No es un sushi cualquiera. Es OZZY 🔥 Rápido. Rico. Distinto. Sushi moderno, street y fusión en el corazón de Córdoba. Pedí por WhatsApp, PedidosYa o Take Away." />
+  <meta name="description" content="No es un sushi cualquiera. Es OZZY. Rápido. Rico. Distinto. Sushi moderno, street y fusión en el corazón de Córdoba. Pedí por WhatsApp, PedidosYa o Take Away." />
   <meta name="theme-color" content="#0b0b0d" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="OZZY Sushi" />
   <meta property="og:title" content="OZZY Sushi · Sushi moderno, Street & Fusión" />
-  <meta property="og:description" content="No es un sushi cualquiera. Es OZZY 🔥 Rápido. Rico. Distinto. Pedí por WhatsApp, PedidosYa o Take Away." />
+  <meta property="og:description" content="No es un sushi cualquiera. Es OZZY. Rápido. Rico. Distinto. Pedí por WhatsApp, PedidosYa o Take Away." />
   <meta property="og:locale" content="es_AR" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0d'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' font-family='Arial,sans-serif'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E" />
+  <!-- Favicon (logo real) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/img/favicon-256.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,15 +25,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
+
+  <!-- ===== Sprite de íconos (sin emojis) ===== -->
+  <svg style="display:none" aria-hidden="true">
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" fill="currentColor"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2c1 3-3 4-3 7.5A3 3 0 0 0 12 13a3 3 0 0 0 3-3.2c1.2 1 2 2.7 2 4.7a5 5 0 0 1-10 0c0-4 2.5-5.5 3-7C10.3 6 10 4 12 2Z" fill="currentColor"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3c.5 3.2 1.8 4.5 5 5-3.2.5-4.5 1.8-5 5-.5-3.2-1.8-4.5-5-5 3.2-.5 4.5-1.8 5-5Z" fill="currentColor"/><path d="M19 14c.25 1.4.8 2 2.2 2.2-1.4.25-2 .8-2.2 2.2-.25-1.4-.8-2-2.2-2.2 1.4-.25 2-.8 2.2-2.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.61 15.06L2 22l5.11-1.34A10 10 0 1 0 12 2Z" fill="currentColor" opacity=".16"/><path d="M17.34 14.26c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.62.14-.18.27-.71.9-.87 1.08-.16.18-.32.2-.6.07-.28-.14-1.16-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.9-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.27.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.47h-.53c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.28 0 1.34.98 2.64 1.12 2.82.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.11-.25-.18-.53-.32Z" fill="currentColor"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l-.8 11.2a2 2 0 0 1-2 1.8H8.8a2 2 0 0 1-2-1.8L6 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5v-9Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3.8 7.7 12 12l8.2-4.3M12 12v9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor"/></symbol>
+  </svg>
 
   <!-- ===== NAVBAR ===== -->
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="#inicio" class="brand">
-        <span class="brand__mark">OZZY</span>
-        <span class="brand__tag">sushi</span>
+        <img src="assets/img/logo.webp" alt="OZZY Sushi" class="brand__logo" width="140" height="93" />
       </a>
 
       <nav class="nav-links" id="navLinks">
@@ -41,7 +55,8 @@
         <a href="#ubicacion">Ubicación</a>
       </nav>
 
-      <a class="btn btn--primary btn--sm nav-cta" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1" target="_blank" rel="noopener">
+      <a class="btn btn--whatsapp btn--sm nav-cta" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+        <svg class="icon" width="18" height="18"><use href="#i-whatsapp"></use></svg>
         Pedí ahora
       </a>
 
@@ -54,24 +69,17 @@
   <!-- ===== HERO ===== -->
   <section class="hero" id="inicio">
     <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__floaters" aria-hidden="true">
-      <span class="floater floater--1">🍣</span>
-      <span class="floater floater--2">🥢</span>
-      <span class="floater floater--3">🍱</span>
-      <span class="floater floater--4">🔥</span>
-      <span class="floater floater--5">🍤</span>
-    </div>
 
     <div class="container hero__content">
+      <img src="assets/img/logo.webp" alt="OZZY" class="hero__logo reveal" width="420" height="280" />
+
       <p class="hero__eyebrow reveal">Sushi moderno · Street · Fusión</p>
-      <h1 class="hero__title reveal">
-        No es un sushi cualquiera.<br />
-        Es <span class="text-flame">OZZY</span> 🔥
-      </h1>
+      <h1 class="hero__title reveal">No es un sushi cualquiera</h1>
       <p class="hero__subtitle reveal">Rápido. Rico. Distinto. El sushi al paso que le faltaba a Córdoba.</p>
 
       <div class="hero__actions reveal">
-        <a class="btn btn--primary btn--lg" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1" target="_blank" rel="noopener">
+        <a class="btn btn--whatsapp btn--lg" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+          <svg class="icon" width="20" height="20"><use href="#i-whatsapp"></use></svg>
           Pedí por WhatsApp
         </a>
         <a class="btn btn--ghost btn--lg" href="#carta">Ver la carta</a>
@@ -81,132 +89,155 @@
     <a href="#carta" class="scroll-cue" aria-label="Bajar a la carta"><span></span></a>
   </section>
 
-  <!-- ===== CONCEPTO ===== -->
+  <!-- ===== CONCEPTO (franja compacta) ===== -->
   <section class="concept" id="concepto">
     <div class="container concept__inner">
       <div class="concept__badges reveal">
-        <span class="badge">⚡ Rápido</span>
-        <span class="badge">🍣 Rico</span>
-        <span class="badge">🔥 Distinto</span>
+        <span class="badge"><svg class="icon" width="16" height="16"><use href="#i-bolt"></use></svg>Rápido</span>
+        <span class="badge"><svg class="icon" width="16" height="16"><use href="#i-flame"></use></svg>Rico</span>
+        <span class="badge"><svg class="icon" width="16" height="16"><use href="#i-sparkle"></use></svg>Distinto</span>
       </div>
-      <h2 class="reveal">Sushi al paso, hecho como se debe</h2>
-      <p class="reveal">
-        Nada de vueltas: rollos directos, karaage crocante y combinaciones pensadas
-        para comer rápido sin resignar sabor. Así piensa OZZY el sushi en Córdoba.
-      </p>
+      <p class="concept__lead reveal">Sushi al paso, hecho como se debe: rollos directos y karaage crocante, sin resignar sabor.</p>
+
+      <div class="concept__gallery" aria-hidden="true">
+        <img src="assets/img/dish-temaki-1.webp" alt="" class="concept__photo concept__photo--1 reveal" loading="lazy" width="800" height="800" />
+        <img src="assets/img/dish-temaki-2.webp" alt="" class="concept__photo concept__photo--2 reveal" loading="lazy" width="800" height="1100" />
+      </div>
     </div>
   </section>
 
-  <!-- ===== CARTA ===== -->
+  <!-- ===== CARTA (estilo carta impresa) ===== -->
   <section class="menu" id="carta">
     <div class="container">
       <h2 class="section-title reveal">La Carta</h2>
-      <p class="section-subtitle reveal">Rolls directos, especiales y gohan bowls. Elegí tu categoría.</p>
+      <p class="section-subtitle reveal">Directo del mostrador a tu mesa. Así es como se arma un pedido en OZZY.</p>
 
-      <div class="menu__tabs reveal" role="tablist" aria-label="Categorías del menú">
-        <button class="menu__tab is-active" data-target="entradas" role="tab" aria-selected="true">Entradas</button>
-        <button class="menu__tab" data-target="especiales" role="tab" aria-selected="false">Especiales</button>
-        <button class="menu__tab" data-target="gohan" role="tab" aria-selected="false">Gohan</button>
-        <button class="menu__tab" data-target="simples" role="tab" aria-selected="false">Rolls Simples</button>
-        <button class="menu__tab" data-target="premium" role="tab" aria-selected="false">Rolls Premium</button>
-        <button class="menu__tab" data-target="extras" role="tab" aria-selected="false">Extras</button>
-      </div>
+      <div class="menu-cats">
 
-      <div class="menu__panels">
+        <div class="menu-cat reveal">
+          <h3 class="menu-cat__title">Entradas</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-item__row">
+                <span class="menu-item__name">Karaage de Langostinos</span>
+                <span class="menu-item__leader"></span>
+                <span class="menu-item__price">$6.500</span>
+              </div>
+              <p class="menu-item__desc">Langostinos marinados estilo japonés, dorados y crocantes · 3 unidades.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row">
+                <span class="menu-item__name">Coliflor Crocante</span>
+                <span class="menu-item__leader"></span>
+                <span class="menu-item__price">$5.000</span>
+              </div>
+              <p class="menu-item__desc">Coliflor marinada estilo karaage, dorada y crocante.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row">
+                <span class="menu-item__name">Ozzy Pockets</span>
+                <span class="menu-item__leader"></span>
+                <span class="menu-item__price">$2.000 c/u</span>
+              </div>
+              <p class="menu-item__desc">Empanaditas de carne o veggies.</p>
+            </li>
+          </ul>
+        </div>
 
-        <div class="menu__panel is-active" id="entradas" role="tabpanel">
-          <div class="menu__grid">
-            <article class="dish reveal">
-              <div class="dish__top"><h3>Karaage de Langostinos</h3><span class="dish__price">$6.500</span></div>
-              <p>Langostinos marinados estilo japonés, dorados y crocantes.</p>
-              <span class="dish__note">3 unidades</span>
-            </article>
-            <article class="dish reveal">
-              <div class="dish__top"><h3>Coliflor Crocante</h3><span class="dish__price">$5.000</span></div>
-              <p>Coliflor marinada estilo karaage, dorada y crocante.</p>
-            </article>
-            <article class="dish reveal">
-              <div class="dish__top"><h3>Ozzy Pockets</h3><span class="dish__price">$2.000</span></div>
-              <p>Empanaditas de carne o veggies.</p>
-              <span class="dish__note">c/u</span>
-            </article>
+        <div class="menu-cat menu-cat--feature reveal" id="especiales">
+          <h3 class="menu-cat__title">Especiales <span class="menu-cat__tag">Experiencia completa</span></h3>
+          <div class="menu-feature">
+            <img src="assets/img/dish-ozzydog.webp" alt="Ozzy Dog, roll completo dorado y crocante" class="menu-feature__photo" loading="lazy" width="900" height="600" />
+            <ul class="menu-list menu-feature__list">
+              <li class="menu-item">
+                <div class="menu-item__row">
+                  <span class="menu-item__name">Ozzy Dog <span class="menu-item__sub">(Roll completo)</span></span>
+                  <span class="menu-item__leader"></span>
+                  <span class="menu-item__price">$15.000</span>
+                </div>
+                <p class="menu-item__desc">Salmón o langostinos, palta cremosa y Phila. Dorado y crocante.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__row">
+                  <span class="menu-item__name">Nigiri Selection</span>
+                  <span class="menu-item__leader"></span>
+                  <span class="menu-item__price">$2.000 c/u</span>
+                </div>
+                <p class="menu-item__desc">Selección de nigiris.</p>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div class="menu__panel" id="especiales" role="tabpanel">
-          <p class="menu__panel-lead reveal">Experiencia completa</p>
-          <div class="menu__grid">
-            <article class="dish dish--feature reveal">
-              <div class="dish__top"><h3>Ozzy Dog <span class="dish__sub">(Roll completo)</span></h3><span class="dish__price">$15.000</span></div>
-              <p>Salmón o langostinos, palta cremosa y Phila. Dorado y crocante.</p>
-            </article>
-            <article class="dish reveal">
-              <div class="dish__top"><h3>Nigiri Selection</h3><span class="dish__price">$2.000</span></div>
-              <p>Selección de nigiris.</p>
-              <span class="dish__note">c/u</span>
-            </article>
-          </div>
+        <div class="menu-cat reveal">
+          <h3 class="menu-cat__title">Gohan</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-item__row">
+                <span class="menu-item__name">Gohan Ozzy</span>
+                <span class="menu-item__leader"></span>
+                <span class="menu-item__price">$15.000</span>
+              </div>
+              <p class="menu-item__desc">Arroz, salmón, langostinos apanados, palta, kanikama, Phila y verdeo.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row">
+                <span class="menu-item__name">Gohan Básico</span>
+                <span class="menu-item__leader"></span>
+                <span class="menu-item__price">$13.000</span>
+              </div>
+              <p class="menu-item__desc">Arroz, pollo crocante, palta, Phila y verdeo.</p>
+            </li>
+          </ul>
+          <p class="menu-cat__note">Agregale láminas de Tamago por <strong>+$700</strong></p>
         </div>
 
-        <div class="menu__panel" id="gohan" role="tabpanel">
-          <div class="menu__grid">
-            <article class="dish reveal">
-              <div class="dish__top"><h3>Gohan Ozzy</h3><span class="dish__price">$15.000</span></div>
-              <p>Arroz, salmón, langostinos apanados, palta, kanikama, Phila y verdeo.</p>
-            </article>
-            <article class="dish reveal">
-              <div class="dish__top"><h3>Gohan Básico</h3><span class="dish__price">$13.000</span></div>
-              <p>Arroz, pollo crocante, palta, Phila y verdeo.</p>
-            </article>
-          </div>
-          <p class="menu__extra reveal">✨ Agregale láminas de Tamago por <strong>+$700</strong></p>
+        <div class="menu-cat menu-cat--accent reveal">
+          <h3 class="menu-cat__title">Rolls Simples <span class="menu-cat__tag">Directos y equilibrados · $6.500 c/u</span></h3>
+          <ul class="menu-list menu-list--compact">
+            <li class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Langostino Fusion Roll</span></div>
+              <p class="menu-item__desc">Langostino crocante y Phila.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Veggie Roll</span></div>
+              <p class="menu-item__desc">Zanahoria frita, repollo y pepino.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Kanikama Roll</span></div>
+              <p class="menu-item__desc">Kanikama, Phila y palta cremosa.</p>
+            </li>
+          </ul>
         </div>
 
-        <div class="menu__panel" id="simples" role="tabpanel">
-          <p class="menu__panel-lead reveal">Directos y equilibrados · $6.500 c/u</p>
-          <div class="menu__grid">
-            <article class="dish reveal">
-              <h3>Langostino Fusion Roll</h3>
-              <p>Langostino crocante y Phila.</p>
-            </article>
-            <article class="dish reveal">
-              <h3>Veggie Roll</h3>
-              <p>Zanahoria frita, repollo y pepino.</p>
-            </article>
-            <article class="dish reveal">
-              <h3>Kanikama Roll</h3>
-              <p>Kanikama, Phila y palta cremosa.</p>
-            </article>
-          </div>
+        <div class="menu-cat menu-cat--accent reveal">
+          <h3 class="menu-cat__title">Rolls Premium <span class="menu-cat__tag">Un paso más allá · $7.500 c/u</span></h3>
+          <ul class="menu-list menu-list--compact">
+            <li class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">SPF Roll</span></div>
+              <p class="menu-item__desc">Salmón fresco, palta cremosa y Phila.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Ebi Philly Roll</span></div>
+              <p class="menu-item__desc">Langostino marinado, palta cremosa y Phila.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Veggie Karaage Roll</span></div>
+              <p class="menu-item__desc">Berenjena crocante, palta cremosa y Phila.</p>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item__row"><span class="menu-item__name">Tamago Roll <span class="menu-item__sub">(Egg Roll)</span></span></div>
+              <p class="menu-item__desc">Lámina de Tamago, salmón fresco, palta cremosa y Phila.</p>
+            </li>
+          </ul>
         </div>
 
-        <div class="menu__panel" id="premium" role="tabpanel">
-          <p class="menu__panel-lead reveal">Un paso más allá · $7.500 c/u</p>
-          <div class="menu__grid">
-            <article class="dish reveal">
-              <h3>SPF Roll</h3>
-              <p>Salmón fresco, palta cremosa y Phila.</p>
-            </article>
-            <article class="dish reveal">
-              <h3>Ebi Philly Roll</h3>
-              <p>Langostino marinado, palta cremosa y Phila.</p>
-            </article>
-            <article class="dish reveal">
-              <h3>Veggie Karaage Roll</h3>
-              <p>Berenjena crocante, palta cremosa y Phila.</p>
-            </article>
-            <article class="dish reveal">
-              <h3>Tamago Roll <span class="dish__sub">(Egg Roll)</span></h3>
-              <p>Lámina de Tamago, salmón fresco, palta cremosa y Phila.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="menu__panel" id="extras" role="tabpanel">
+        <div class="menu-cat reveal">
+          <h3 class="menu-cat__title">Extras</h3>
           <div class="menu__chips">
-            <span class="chip reveal">🥢 Pote de salsa de soja</span>
-            <span class="chip reveal">🥢 Pote de salsa Buenos Aires</span>
-            <span class="chip reveal">🥢 Pote de salsa Teriyaki</span>
+            <span class="chip">Pote de salsa de soja</span>
+            <span class="chip">Pote de salsa Buenos Aires</span>
+            <span class="chip">Pote de salsa Teriyaki</span>
           </div>
         </div>
 
@@ -225,17 +256,17 @@
       <p class="section-subtitle reveal">Tres formas directas de llegar a tu sushi. Elegí la que más te acomode.</p>
 
       <div class="order__grid">
-        <article class="order-card reveal">
-          <span class="order-card__icon">💬</span>
+        <article class="order-card order-card--whatsapp reveal">
+          <span class="order-card__icon"><svg class="icon" width="30" height="30"><use href="#i-whatsapp"></use></svg></span>
           <h3>WhatsApp</h3>
           <p>Pedido directo. Nos escribís y armamos tu pedido al toque.</p>
-          <a class="btn btn--primary btn--block" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1" target="_blank" rel="noopener">
+          <a class="btn btn--whatsapp btn--block" href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
             Pedir por WhatsApp
           </a>
         </article>
 
         <article class="order-card order-card--feature reveal">
-          <span class="order-card__icon">🛍️</span>
+          <span class="order-card__icon"><svg class="icon" width="30" height="30"><use href="#i-bag"></use></svg></span>
           <h3>Take Away</h3>
           <p>Armá tu pedido online, pagalo y pasá a retirarlo sin esperas.</p>
           <a class="btn btn--primary btn--block" href="https://ozzy-store.web.app/" target="_blank" rel="noopener">
@@ -244,7 +275,7 @@
         </article>
 
         <article class="order-card reveal">
-          <span class="order-card__icon">🛵</span>
+          <span class="order-card__icon"><svg class="icon" width="30" height="30"><use href="#i-box"></use></svg></span>
           <h3>PedidosYa</h3>
           <p>Pedilo por la app y te lo llevamos hasta la puerta.</p>
           <a class="btn btn--ghost btn--block" href="https://www.pedidosya.com.ar/restaurantes/cordoba/ozzy-sushi-ad90231d-5bea-4f4a-b761-a3e93f2b5dde-menu" target="_blank" rel="noopener">
@@ -257,27 +288,19 @@
 
   <!-- ===== UBICACIÓN ===== -->
   <section class="location" id="ubicacion">
-    <div class="container location__inner">
-      <div class="location__info reveal">
-        <h2 class="section-title" style="text-align:left">Dónde estamos</h2>
-        <p class="location__address">📍 Ituzaingó 791, X5000 Córdoba, Argentina</p>
-        <p class="location__hint">Sushi al paso: pedís, retirás y listo. También delivery por PedidosYa.</p>
-        <div class="location__actions">
-          <a class="btn btn--primary" href="https://www.google.com/maps?q=Ozzy,+Ituzaing%C3%B3+791,+X5000+C%C3%B3rdoba&ftid=0x9432a3458025d377:0x1c87f4efc503ef68" target="_blank" rel="noopener">
-            Cómo llegar
-          </a>
-          <a class="btn btn--ghost" href="https://www.instagram.com/ozzysushi/" target="_blank" rel="noopener">
-            📸 Seguinos en Instagram
-          </a>
-        </div>
-      </div>
-      <div class="location__map reveal">
-        <iframe
-          src="https://www.google.com/maps?q=Ozzy,+Ituzaing%C3%B3+791,+X5000+C%C3%B3rdoba&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Ubicación de OZZY Sushi en Córdoba"
-        ></iframe>
+    <img src="assets/img/local.webp" alt="Frente del local de OZZY Sushi en Córdoba" class="location__photo reveal" loading="lazy" width="1800" height="1200" />
+    <div class="location__panel reveal">
+      <h2 class="section-title" style="text-align:left">Dónde estamos</h2>
+      <p class="location__address"><svg class="icon" width="16" height="16"><use href="#i-pin"></use></svg> Ituzaingó 791, X5000 Córdoba, Argentina</p>
+      <p class="location__hint">Sushi al paso: pedís, retirás y listo. También delivery por PedidosYa.</p>
+      <div class="location__actions">
+        <a class="btn btn--primary" href="https://www.google.com/maps?q=Ozzy,+Ituzaing%C3%B3+791,+X5000+C%C3%B3rdoba&ftid=0x9432a3458025d377:0x1c87f4efc503ef68" target="_blank" rel="noopener">
+          Cómo llegar
+        </a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/ozzysushi/" target="_blank" rel="noopener">
+          <svg class="icon" width="18" height="18"><use href="#i-instagram"></use></svg>
+          Instagram
+        </a>
       </div>
     </div>
   </section>
@@ -286,8 +309,8 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <span class="brand__mark">OZZY</span>
-        <p>No es un sushi cualquiera. Es OZZY 🔥<br />Sushi moderno · Street · Fusión · Córdoba</p>
+        <img src="assets/img/logo.webp" alt="OZZY Sushi" class="footer__logo" loading="lazy" width="120" height="80" />
+        <p>Sushi moderno · Street · Fusión · Córdoba</p>
       </div>
 
       <div class="footer__links">
@@ -304,11 +327,11 @@
   <!-- ===== WhatsApp flotante ===== -->
   <a
     class="whatsapp-float"
-    href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%20%F0%9F%8D%A3%0AQuiero%20hacerles%20un%20pedido%20%F0%9F%A5%B0%F0%9F%8D%B1"
+    href="https://api.whatsapp.com/send?phone=543513775443&text=Hola%20Ozzy%2C%20quiero%20hacer%20un%20pedido"
     target="_blank"
     rel="noopener"
     aria-label="Pedir por WhatsApp"
-  >💬</a>
+  ><svg class="icon" width="28" height="28"><use href="#i-whatsapp"></use></svg></a>
 
   <script src="js/main.js" defer></script>
 </body>

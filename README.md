@@ -9,9 +9,10 @@ pedido directo por WhatsApp.
 
 ```
 .
-├── index.html        # Toda la página (una sola landing)
+├── index.html         # Toda la página (una sola landing)
 ├── css/style.css      # Estilos (diseño, animaciones, responsive)
-├── js/main.js          # Interacciones (menú tabs, scroll reveal, navbar)
+├── js/main.js         # Interacciones (scroll reveal, navbar, mobile menu)
+├── assets/img/        # Logo real y fotos del negocio (optimizadas a .webp)
 └── README.md
 ```
 
@@ -47,7 +48,9 @@ Sitio en construcción activa, commit a commit:
 
 - [x] Estructura base + SEO/meta tags
 - [x] Diseño (hero, navbar, sistema de colores/tipografía)
-- [x] Carta completa con precios
+- [x] Carta completa con precios (estilo carta impresa, sin tabs)
 - [x] Pedí (WhatsApp / Take Away / PedidosYa) + Ubicación
 - [x] Animaciones e interacciones
+- [x] Logo y fotos reales del negocio integradas, sin emojis
+- [x] Botones de WhatsApp en verde (nunca naranja)
 - [ ] Responsive final + pulido

@@ -29,25 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   }
 
-  /* ---------- Tabs de la carta ---------- */
-  const tabs = document.querySelectorAll('.menu__tab');
-  const panels = document.querySelectorAll('.menu__panel');
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.target;
-      tabs.forEach((t) => {
-        t.classList.toggle('is-active', t === tab);
-        t.setAttribute('aria-selected', String(t === tab));
-      });
-      panels.forEach((panel) => panel.classList.toggle('is-active', panel.id === target));
-      // Revela las tarjetas del panel recién mostrado, aunque ya hayan pasado el viewport
-      const activePanel = document.getElementById(target);
-      if (activePanel) {
-        activePanel.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
-      }
-    });
-  });
-
   /* ---------- Scroll reveal (con pequeño stagger por tarjeta) ---------- */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -68,6 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
+  // Red de seguridad: si por lo que sea el observer no llegó a mostrar algo
+  // (scroll saltado, navegador raro, etc.), a los 2.5s se muestra igual.
+  // Así el contenido nunca queda invisible de forma permanente.
+  window.setTimeout(() => {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
+  }, 2500);
 
   /* ---------- Scroll-spy: resalta el link activo en el navbar ---------- */
   const sections = document.querySelectorAll('section[id]');
