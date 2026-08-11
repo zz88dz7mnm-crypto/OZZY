@@ -46,7 +46,7 @@ Vercel — no hay que hacer nada más para que la página en producción se actu
 Sitio en construcción activa, commit a commit:
 
 - [x] Estructura base + SEO/meta tags
-- [ ] Diseño (hero, navbar, sistema de colores/tipografía)
+- [x] Diseño (hero, navbar, sistema de colores/tipografía)
 - [ ] Carta completa con precios
 - [ ] Pedí (WhatsApp / Take Away / PedidosYa) + Ubicación
 - [ ] Animaciones e interacciones
