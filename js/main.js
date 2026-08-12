@@ -37,3 +37,23 @@
   setTimeout(showIfNear, 600);
   setTimeout(function () { nodes.forEach(function (el) { show(el); }); }, 2500);
 })();
+
+// Botón flotante de WhatsApp: aparece recién al pasar el hero, así no
+// se monta sobre los botones de arriba. Va en su propio bloque porque
+// el de arriba corta temprano si el usuario pidió menos movimiento, y
+// el botón tiene que funcionar igual.
+(function () {
+  var float = document.querySelector('.oz-h15');
+  var hero = document.getElementById('inicio');
+  if (!float) return;
+  if (!hero) { float.classList.add('is-visible'); return; }
+  function update() {
+    // Umbral calculado sobre el alto real del hero, no un número fijo:
+    // así vale para cualquier tamaño de pantalla.
+    var limite = hero.offsetTop + hero.offsetHeight - 80;
+    float.classList.toggle('is-visible', window.scrollY > limite);
+  }
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+})();

@@ -33,6 +33,17 @@ img { max-width: 100%; }
 .oz-h12:focus-visible, .oz-h13:focus-visible, .oz-h14:focus-visible { text-decoration:underline; }
 .oz-h15:focus-visible { transform:translate(2px,2px); box-shadow:1px 1px 0 #16130f; color:#fff; }
 
+/* Botón flotante de WhatsApp: arranca oculto y lo muestra el JS
+   al pasar el hero. Solo opacidad/visibilidad, sin transform, para
+   no pelearse con el desplazamiento del :hover. */
+.oz-h15 {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .28s ease, visibility .28s, transform .12s ease, box-shadow .12s ease !important;
+}
+.oz-h15.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
+
 /* ---------------------------------------------------------------
    Hover: SOLO con mouse real. En touch el navegador deja el :hover
    "pegado" después de tocar, y botones como el de Instagram quedaban
