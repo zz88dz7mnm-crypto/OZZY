@@ -42,12 +42,17 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Faltan datos.' });
   }
 
+  // Ni el usuario ni la contraseña distinguen mayúsculas de minúsculas:
+  // se pasan a minúscula acá y también al crearlas, así siempre coinciden.
+  const usuarioNorm = usuario.trim().toLowerCase();
+  const claveNorm = clave.toLowerCase();
+
   try {
     const supabase = db();
     const { data, error } = await supabase
       .from('usuarios')
       .select('usuario, clave_hash')
-      .eq('usuario', usuario)
+      .eq('usuario', usuarioNorm)
       .maybeSingle();
 
     if (error) throw error;
@@ -56,7 +61,7 @@ export default async function handler(req, res) {
     // Así responder tarda lo mismo exista o no, y no se puede averiguar
     // qué usuarios son válidos midiendo el tiempo de respuesta.
     const hash = data?.clave_hash || '$2a$12$invalidinvalidinvalidinvalidinvalidinvalidinvalidinvalidin';
-    const ok = await bcrypt.compare(clave, hash);
+    const ok = await bcrypt.compare(claveNorm, hash);
 
     // Mensaje único a propósito: no decimos si falló el usuario o la clave.
     if (!data || !ok) {
@@ -66,11 +71,11 @@ export default async function handler(req, res) {
     await supabase
       .from('usuarios')
       .update({ ultimo_acceso: new Date().toISOString() })
-      .eq('usuario', usuario);
+      .eq('usuario', usuarioNorm);
 
     intentos.delete(ip);
-    res.setHeader('Set-Cookie', crearCookie(usuario));
-    return res.status(200).json({ ok: true, usuario });
+    res.setHeader('Set-Cookie', crearCookie(usuarioNorm));
+    return res.status(200).json({ ok: true, usuario: usuarioNorm });
   } catch (e) {
     console.error('Error en login:', e.message);
     return res.status(500).json({ error: 'No se pudo iniciar sesión.' });

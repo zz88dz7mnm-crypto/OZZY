@@ -120,3 +120,18 @@ insert into productos (categoria_id, nombre, aclaracion, descripcion, precio, or
   (6, 'Pote de salsa de soja',         null, null, null, 1),
   (6, 'Pote de salsa Buenos Aires',    null, null, null, 2),
   (6, 'Pote de salsa Teriyaki',        null, null, null, 3);
+
+-- ============================================================
+--  USUARIO DEL PANEL
+--  Usuario: ADMIN   ·   Contraseña: ADMIN123
+--  No distingue mayúsculas de minúsculas (se guardan en minúscula
+--  y el login pasa lo que se escribe a minúscula antes de comparar).
+--
+--  Lo de abajo NO es la contraseña: es su hash bcrypt. Aunque alguien
+--  lo lea, no puede sacar la contraseña de ahí.
+--
+--  Para cambiarla más adelante:
+--    node db/crear-usuario.mjs ADMIN "la-nueva-contraseña"
+-- ============================================================
+insert into usuarios (usuario, clave_hash) values
+  ('admin', '$2a$12$awWn1LmqQIWImu/CB8vTh.10lucaTqBvfFBWvfPxdWrx0..ooBl0a');

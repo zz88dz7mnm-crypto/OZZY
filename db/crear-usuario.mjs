@@ -28,24 +28,33 @@ if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) {
   console.error('Faltan las variables SUPABASE_URL y SUPABASE_SERVICE_KEY.');
   process.exit(1);
 }
-if (clave.length < 10) {
-  console.error('La contraseña tiene que tener al menos 10 caracteres.');
+if (clave.length < 6) {
+  console.error('La contraseña tiene que tener al menos 6 caracteres.');
   process.exit(1);
 }
+if (clave.length < 12) {
+  console.warn('AVISO: la contraseña es corta. Con este panel se puede cambiar toda la carta.');
+}
+
+// El login no distingue mayúsculas de minúsculas, así que guardamos
+// usuario y contraseña siempre en minúscula, igual que al validar.
+const usuarioNorm = usuario.trim().toLowerCase();
+const claveNorm = clave.toLowerCase();
 
 const db = createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, { auth: { persistSession: false } });
 
 // coste 12: tarda ~250ms a propósito, para que probar contraseñas a lo bruto sea lento
-const clave_hash = await bcrypt.hash(clave, 12);
+const clave_hash = await bcrypt.hash(claveNorm, 12);
 
 const { error } = await db
   .from('usuarios')
-  .upsert({ usuario, clave_hash }, { onConflict: 'usuario' });
+  .upsert({ usuario: usuarioNorm, clave_hash }, { onConflict: 'usuario' });
 
 if (error) {
   console.error('No se pudo guardar el usuario:', error.message);
   process.exit(1);
 }
 
-console.log(`Listo. Usuario "${usuario}" creado o actualizado.`);
+console.log(`Listo. Usuario "${usuarioNorm}" creado o actualizado.`);
+console.log('Se entra sin distinguir mayúsculas de minúsculas.');
 console.log('La contraseña quedó guardada hasheada, no en texto plano.');
