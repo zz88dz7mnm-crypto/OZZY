@@ -1,84 +1,31 @@
-// OZZY Sushi — interacciones
-document.addEventListener('DOMContentLoaded', () => {
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  /* ---------- Navbar: fondo sólido al scrollear ---------- */
-  const navbar = document.getElementById('navbar');
-  /* ---------- Botón flotante de WhatsApp: recién aparece al pasar el hero ---------- */
-  // Usamos la altura del propio hero (no un número fijo) para que nunca
-  // quede superpuesto con sus botones, sea cual sea el tamaño de pantalla.
-  const hero = document.querySelector('.hero');
-  const waFloat = document.querySelector('.whatsapp-float');
-  const onScroll = () => {
-    if (navbar) navbar.classList.toggle('is-scrolled', window.scrollY > 12);
-    if (waFloat) {
-      const threshold = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
-      waFloat.classList.toggle('is-visible', window.scrollY > threshold - 80);
-    }
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* ---------- Menú mobile ---------- */
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (navToggle && navLinks) {
-    const closeMenu = () => {
-      navToggle.classList.remove('is-open');
-      navLinks.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    };
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('is-open');
-      navToggle.classList.toggle('is-open', open);
-      navToggle.setAttribute('aria-expanded', String(open));
+// OZZY Sushi — reveal al scrollear, sin dependencias.
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if (reduce || !('IntersectionObserver' in window) || !nodes.length) return;
+  function show(el, delay) {
+    if (el.dataset.revealed === '1') return;
+    el.dataset.revealed = '1';
+    setTimeout(function () { el.style.opacity = '1'; el.style.transform = 'none'; }, delay || 0);
+  }
+  function showIfNear() {
+    var h = window.innerHeight || 800;
+    nodes.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < h * 1.05 && r.bottom > -h * 0.2) show(el);
     });
-    navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   }
-
-  /* ---------- Scroll reveal (con pequeño stagger por tarjeta) ---------- */
-  const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const i = [...entry.target.parentElement.children].indexOf(entry.target);
-            entry.target.style.transitionDelay = `${Math.min(i, 5) * 60}ms`;
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-    );
-    revealEls.forEach((el) => io.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
-  }
-  // Red de seguridad: si por lo que sea el observer no llegó a mostrar algo
-  // (scroll saltado, navegador raro, etc.), a los 2.5s se muestra igual.
-  // Así el contenido nunca queda invisible de forma permanente.
-  window.setTimeout(() => {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
-  }, 2500);
-
-  /* ---------- Scroll-spy: resalta el link activo en el navbar ---------- */
-  const sections = document.querySelectorAll('section[id]');
-  const spyLinks = document.querySelectorAll('.nav-links a');
-  if ('IntersectionObserver' in window && sections.length && spyLinks.length) {
-    const spy = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          spyLinks.forEach((link) => {
-            link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
-          });
-        });
-      },
-      { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '76px'} 0px -60% 0px` }
-    );
-    sections.forEach((s) => spy.observe(s));
-  }
-});
+  nodes.forEach(function (el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1)';
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e, i) { if (e.isIntersecting) { show(e.target, i * 70); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  nodes.forEach(function (el) { io.observe(el); });
+  requestAnimationFrame(showIfNear);
+  window.addEventListener('scroll', showIfNear, { passive: true });
+  setTimeout(showIfNear, 600);
+  setTimeout(function () { nodes.forEach(function (el) { show(el); }); }, 2500);
+})();
