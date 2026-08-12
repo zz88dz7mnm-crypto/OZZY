@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <title>Panel · OZZY Sushi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Que ningún buscador lo indexe ni lo muestre -->
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --tinta:#16130f; --papel:#f4efe4; --naranja:#f07d18; --verde:#0f7b3d; --rojo:#b3261e; --linea:#cfc4b1; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--papel); color:var(--tinta); font-family:'Newsreader',Georgia,serif; }
+    h1,h2,h3,button,label,th { font-family:'Bricolage Grotesque',system-ui,sans-serif; }
+    .caja { max-width:1100px; margin:0 auto; padding:24px clamp(14px,4vw,32px) 90px; }
+
+    header { background:var(--papel); border-bottom:3px solid var(--tinta); position:sticky; top:0; z-index:10; }
+    header .caja { padding-block:14px; display:flex; align-items:center; gap:16px; }
+    header img { width:88px; height:auto; display:block; }
+    header h1 { margin:0; font-size:20px; font-weight:800; letter-spacing:-0.02em; }
+
+    button { font-weight:800; font-size:15px; padding:11px 18px; border:3px solid var(--tinta);
+             border-radius:2px; background:var(--naranja); color:var(--tinta); cursor:pointer;
+             box-shadow:4px 4px 0 var(--tinta); transition:transform .1s ease, box-shadow .1s ease; }
+    button:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--tinta); }
+    button:disabled { opacity:.5; cursor:not-allowed; transform:none; box-shadow:4px 4px 0 var(--tinta); }
+    button.sec { background:transparent; box-shadow:none; }
+    button.chico { font-size:13px; padding:7px 12px; box-shadow:2px 2px 0 var(--tinta); }
+    button.chico:hover { box-shadow:1px 1px 0 var(--tinta); }
+    button.peligro { background:var(--rojo); color:#fff; }
+
+    input, textarea, select { font-family:'Newsreader',Georgia,serif; font-size:16px; width:100%;
+      padding:9px 11px; border:2px solid var(--tinta); border-radius:2px; background:#fff; color:var(--tinta); }
+    textarea { resize:vertical; min-height:62px; }
+    label { display:block; font-size:12px; font-weight:600; text-transform:uppercase;
+            letter-spacing:.06em; margin-bottom:5px; color:#5a5147; }
+
+    .cat { border:3px solid var(--tinta); border-radius:3px; background:#fbf8f1; margin-bottom:22px; }
+    .cat > summary { list-style:none; cursor:pointer; padding:14px 18px; display:flex; align-items:center;
+                     gap:12px; font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:800; font-size:19px; }
+    .cat > summary::-webkit-details-marker { display:none; }
+    .cat > summary::before { content:'▸'; font-size:15px; }
+    .cat[open] > summary::before { content:'▾'; }
+    .cat .cuerpo { padding:0 18px 18px; }
+    .etiqueta { font-family:'Newsreader',Georgia,serif; font-weight:400; font-style:italic;
+                font-size:14px; color:#5a5147; }
+
+    .prod { border-top:2px solid var(--linea); padding:14px 0; display:grid;
+            grid-template-columns:1fr 150px auto; gap:10px 12px; align-items:start; }
+    .prod .desc { grid-column:1 / -1; }
+    .prod .acciones { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+    .oculto-marca { font-size:12px; font-weight:800; background:var(--tinta); color:var(--papel);
+                    padding:3px 8px; border-radius:999px; text-transform:uppercase; letter-spacing:.05em; }
+
+    .aviso { position:fixed; left:50%; transform:translateX(-50%); bottom:24px; z-index:50;
+             background:var(--tinta); color:var(--papel); padding:13px 22px; border-radius:2px;
+             font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:600; font-size:15px;
+             box-shadow:5px 5px 0 var(--naranja); opacity:0; pointer-events:none; transition:opacity .25s ease; }
+    .aviso.ver { opacity:1; }
+    .aviso.mal { box-shadow:5px 5px 0 var(--rojo); }
+
+    #login { max-width:380px; margin:14vh auto; padding:0 20px; }
+    #login img { width:150px; height:auto; display:block; margin:0 auto 26px; }
+    #login .campo { margin-bottom:14px; }
+    #login button { width:100%; }
+    .error { color:var(--rojo); font-weight:600; font-size:15px; margin-top:12px; min-height:22px; }
+
+    @media (max-width:640px) {
+      .prod { grid-template-columns:1fr; }
+      header .caja { flex-wrap:wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="login" hidden>
+  <img src="assets/img/logo.webp" alt="OZZY" />
+  <form id="form-login">
+    <div class="campo">
+      <label for="usuario">Usuario</label>
+      <input id="usuario" name="usuario" autocomplete="username" required />
+    </div>
+    <div class="campo">
+      <label for="clave">Contraseña</label>
+      <input id="clave" name="clave" type="password" autocomplete="current-password" required />
+    </div>
+    <button type="submit" id="btn-entrar">Entrar</button>
+    <p class="error" id="error-login" role="alert"></p>
+  </form>
+</div>
+
+<!-- ===================== PANEL ===================== -->
+<div id="panel" hidden>
+  <header>
+    <div class="caja">
+      <img src="assets/img/logo.webp" alt="OZZY" />
+      <h1>Carta</h1>
+      <button class="sec chico" id="btn-salir" style="margin-left:auto;">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="caja">
+    <p style="font-size:17px; color:#4a4238; margin:0 0 22px;">
+      Los cambios se publican al guardar. En la página se ven en menos de un minuto.
+    </p>
+    <div id="categorias"></div>
+  </main>
+</div>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var login = $('#login'), panel = $('#panel'), avisoEl = $('#aviso'), timerAviso;
+
+  function aviso(txt, mal) {
+    avisoEl.textContent = txt;
+    avisoEl.classList.toggle('mal', Boolean(mal));
+    avisoEl.classList.add('ver');
+    clearTimeout(timerAviso);
+    timerAviso = setTimeout(function () { avisoEl.classList.remove('ver'); }, 2600);
+  }
+
+  function api(url, opciones) {
+    opciones = opciones || {};
+    opciones.headers = Object.assign({ 'Content-Type': 'application/json' }, opciones.headers || {});
+    return fetch(url, opciones).then(function (r) {
+      if (r.status === 401) { mostrarLogin(); throw new Error('Se venció la sesión.'); }
+      return r.json().then(function (d) {
+        if (!r.ok) throw new Error(d.error || 'Algo salió mal.');
+        return d;
+      });
+    });
+  }
+
+  function esc(t) {
+    return String(t == null ? '' : t).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function mostrarLogin() { login.hidden = false; panel.hidden = true; }
+  function mostrarPanel() { login.hidden = true; panel.hidden = false; cargar(); }
+
+  /* ---------------- login ---------------- */
+  $('#form-login').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = $('#btn-entrar'), err = $('#error-login');
+    err.textContent = ''; btn.disabled = true; btn.textContent = 'Entrando…';
+    api('/api/login', {
+      method: 'POST',
+      body: JSON.stringify({ usuario: $('#usuario').value, clave: $('#clave').value }),
+    })
+      .then(function () { $('#clave').value = ''; mostrarPanel(); })
+      .catch(function (e) { err.textContent = e.message; })
+      .finally(function () { btn.disabled = false; btn.textContent = 'Entrar'; });
+  });
+
+  $('#btn-salir').addEventListener('click', function () {
+    api('/api/logout', { method: 'POST' }).finally(mostrarLogin);
+  });
+
+  /* ---------------- carga y dibujo ---------------- */
+  var CATS = [], PRODS = [];
+
+  function cargar() {
+    api('/api/admin/productos').then(function (d) {
+      CATS = d.categorias; PRODS = d.productos; dibujar();
+    }).catch(function (e) { aviso(e.message, true); });
+  }
+
+  function filaProducto(p, cat) {
+    var conPrecio = cat.tipo !== 'grupo' && cat.tipo !== 'chips';
+    var esChip = cat.tipo === 'chips';
+    return '' +
+      '<div class="prod" data-id="' + p.id + '">' +
+        '<div><label>Nombre</label><input data-campo="nombre" value="' + esc(p.nombre) + '" /></div>' +
+        (conPrecio
+          ? '<div><label>Precio</label><input data-campo="precio" value="' + esc(p.precio) + '" placeholder="$0.000" /></div>'
+          : '<div></div>') +
+        '<div class="acciones" style="padding-top:22px;">' +
+          (p.visible ? '' : '<span class="oculto-marca">oculto</span>') +
+          '<button class="chico sec" data-accion="visible">' + (p.visible ? 'Ocultar' : 'Mostrar') + '</button>' +
+          '<button class="chico sec" data-accion="subir" title="Subir">↑</button>' +
+          '<button class="chico sec" data-accion="bajar" title="Bajar">↓</button>' +
+          '<button class="chico peligro" data-accion="borrar">Borrar</button>' +
+        '</div>' +
+        (esChip ? '' :
+          '<div class="desc"><label>Descripción</label><textarea data-campo="descripcion">' + esc(p.descripcion) + '</textarea></div>') +
+      '</div>';
+  }
+
+  function dibujar() {
+    var cont = $('#categorias');
+    cont.innerHTML = CATS.map(function (cat) {
+      var suyos = PRODS.filter(function (p) { return p.categoria_id === cat.id; })
+                       .sort(function (a, b) { return a.orden - b.orden; });
+      var etiqueta = cat.tipo === 'grupo' ? ' — precio único del grupo'
+                   : cat.tipo === 'chips' ? ' — etiquetas sin precio'
+                   : cat.tipo === 'destacado' ? ' — bloque destacado' : '';
+      return '' +
+      '<details class="cat" data-cat="' + cat.id + '" open>' +
+        '<summary>' + esc(cat.nombre) + '<span class="etiqueta">' + etiqueta + '</span></summary>' +
+        '<div class="cuerpo">' +
+          (cat.tipo === 'grupo'
+            ? '<div style="max-width:240px; margin-bottom:14px;"><label>Precio del grupo</label>' +
+              '<input data-cat-campo="precio_grupo" value="' + esc(cat.precio_grupo) + '" placeholder="$0.000 c/u" /></div>'
+            : '') +
+          suyos.map(function (p) { return filaProducto(p, cat); }).join('') +
+          '<div style="margin-top:16px; display:flex; gap:10px;">' +
+            '<button class="chico" data-nuevo="' + cat.id + '">+ Agregar producto</button>' +
+            '<button class="chico sec" data-guardar="' + cat.id + '">Guardar cambios</button>' +
+          '</div>' +
+        '</div>' +
+      '</details>';
+    }).join('');
+  }
+
+  /* ---------------- acciones ---------------- */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('button');
+    if (!btn || panel.hidden) return;
+
+    var det = btn.closest('details');
+    var catId = det ? Number(det.dataset.cat) : null;
+
+    if (btn.dataset.nuevo) {
+      api('/api/admin/productos', {
+        method: 'POST',
+        body: JSON.stringify({ categoria_id: Number(btn.dataset.nuevo), nombre: 'Producto nuevo' }),
+      }).then(function () { aviso('Producto agregado'); cargar(); })
+        .catch(function (e) { aviso(e.message, true); });
+      return;
+    }
+
+    if (btn.dataset.guardar) { guardarCategoria(catId, det, btn); return; }
+
+    var fila = btn.closest('.prod');
+    if (!fila) return;
+    var id = Number(fila.dataset.id);
+    var prod = PRODS.find(function (p) { return p.id === id; });
+
+    if (btn.dataset.accion === 'visible') {
+      api('/api/admin/productos?id=' + id, {
+        method: 'PATCH', body: JSON.stringify({ visible: !prod.visible }),
+      }).then(function () { aviso(prod.visible ? 'Producto oculto' : 'Producto visible'); cargar(); })
+        .catch(function (e) { aviso(e.message, true); });
+    }
+
+    if (btn.dataset.accion === 'borrar') {
+      if (!confirm('¿Borrar "' + prod.nombre + '"? No se puede deshacer.')) return;
+      api('/api/admin/productos?id=' + id, { method: 'DELETE' })
+        .then(function () { aviso('Producto borrado'); cargar(); })
+        .catch(function (e) { aviso(e.message, true); });
+    }
+
+    if (btn.dataset.accion === 'subir' || btn.dataset.accion === 'bajar') {
+      var hermanos = PRODS.filter(function (p) { return p.categoria_id === prod.categoria_id; })
+                          .sort(function (a, b) { return a.orden - b.orden; });
+      var i = hermanos.findIndex(function (p) { return p.id === id; });
+      var j = btn.dataset.accion === 'subir' ? i - 1 : i + 1;
+      if (j < 0 || j >= hermanos.length) return;
+      var otro = hermanos[j];
+      Promise.all([
+        api('/api/admin/productos?id=' + prod.id, { method: 'PATCH', body: JSON.stringify({ orden: otro.orden }) }),
+        api('/api/admin/productos?id=' + otro.id, { method: 'PATCH', body: JSON.stringify({ orden: prod.orden }) }),
+      ]).then(function () { cargar(); }).catch(function (e) { aviso(e.message, true); });
+    }
+  });
+
+  function guardarCategoria(catId, det, btn) {
+    var tareas = [];
+
+    var campoGrupo = det.querySelector('[data-cat-campo="precio_grupo"]');
+    if (campoGrupo) {
+      tareas.push(api('/api/admin/categorias?id=' + catId, {
+        method: 'PATCH', body: JSON.stringify({ precio_grupo: campoGrupo.value }),
+      }));
+    }
+
+    det.querySelectorAll('.prod').forEach(function (fila) {
+      var id = Number(fila.dataset.id);
+      var original = PRODS.find(function (p) { return p.id === id; });
+      var cambios = {};
+      fila.querySelectorAll('[data-campo]').forEach(function (inp) {
+        var campo = inp.dataset.campo;
+        var valor = inp.value.trim();
+        if (valor !== (original[campo] == null ? '' : String(original[campo]))) cambios[campo] = valor;
+      });
+      if (Object.keys(cambios).length) {
+        tareas.push(api('/api/admin/productos?id=' + id, { method: 'PATCH', body: JSON.stringify(cambios) }));
+      }
+    });
+
+    if (!tareas.length) { aviso('No había cambios'); return; }
+    btn.disabled = true;
+    Promise.all(tareas)
+      .then(function () { aviso('Cambios guardados'); cargar(); })
+      .catch(function (e) { aviso(e.message, true); })
+      .finally(function () { btn.disabled = false; });
+  }
+
+  /* ---------------- arranque ---------------- */
+  fetch('/api/sesion')
+    .then(function (r) { return r.json(); })
+    .then(function (d) { d.activa ? mostrarPanel() : mostrarLogin(); })
+    .catch(mostrarLogin);
+})();
+</script>
+</body>
+</html>

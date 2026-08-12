@@ -1,0 +1,14 @@
+{
+  "name": "ozzy-sushi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio de OZZY Sushi (Córdoba) con panel de administración de la carta.",
+  "type": "module",
+  "scripts": {
+    "crear-usuario": "node db/crear-usuario.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "bcryptjs": "^2.4.3"
+  }
+}

@@ -92,7 +92,7 @@
         <p data-reveal style="margin:0; font-style:italic; font-size:clamp(16px,1.8vw,20px); color:#4a4238; max-width:36ch;">Precios de mostrador, siempre al día. Todo se arma en el momento.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr)); gap:clamp(30px,4vw,60px); padding-top:clamp(30px,4vw,52px);">
+      <div data-carta-grid style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr)); gap:clamp(30px,4vw,60px); padding-top:clamp(30px,4vw,52px);">
 
         <div data-reveal>
           <h3 style="margin:0 0 6px; font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:800; font-size:26px; letter-spacing:-0.02em;">Entradas</h3>
@@ -194,9 +194,9 @@
 
       <div data-reveal style="margin-top:clamp(36px,5vw,64px); border-top:3px solid #16130f; padding-top:clamp(28px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:clamp(24px,4vw,48px); align-items:center;">
         <div>
-          <h3 style="margin:0 0 10px; font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:800; font-size:clamp(28px,3.6vw,44px); line-height:0.95; letter-spacing:-0.03em;">Especiales del mostrador</h3>
-          <p style="margin:0 0 22px; font-size:19px; line-height:1.5; color:#2a251e; max-width:44ch;">Lo que hacemos cuando queremos mostrar de qué somos capaces. Preguntá por los temakis del día.</p>
-          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:18px;">
+          <h3 data-esp-titulo style="margin:0 0 10px; font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:800; font-size:clamp(28px,3.6vw,44px); line-height:0.95; letter-spacing:-0.03em;">Especiales del mostrador</h3>
+          <p data-esp-sub style="margin:0 0 22px; font-size:19px; line-height:1.5; color:#2a251e; max-width:44ch;">Lo que hacemos cuando queremos mostrar de qué somos capaces. Preguntá por los temakis del día.</p>
+          <ul data-esp-lista style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:18px;">
             <li style="border-top:1px solid #cfc4b1; padding-top:14px;">
               <div style="display:flex; align-items:baseline; gap:8px;">
                 <span style="font-family:'Bricolage Grotesque',system-ui,sans-serif; font-weight:600; font-size:21px;">Ozzy Dog <span style="font-family:'Newsreader',Georgia,serif; font-style:italic; font-weight:400; font-size:18px;">(roll completo)</span></span>
@@ -214,7 +214,7 @@
               <p style="margin:6px 0 0; font-size:17px; line-height:1.5; color:#413a31; max-width:46ch;">Selección de nigiris según pesca del día.</p>
             </li>
           </ul>
-          <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;">
+          <div data-extras style="display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;">
             <span style="font-family:'Newsreader',Georgia,serif; font-size:16px; padding:8px 14px; border:2px solid #16130f; border-radius:999px;">Pote de salsa de soja</span>
             <span style="font-family:'Newsreader',Georgia,serif; font-size:16px; padding:8px 14px; border:2px solid #16130f; border-radius:999px;">Pote de salsa Buenos Aires</span>
             <span style="font-family:'Newsreader',Georgia,serif; font-size:16px; padding:8px 14px; border:2px solid #16130f; border-radius:999px;">Pote de salsa Teriyaki</span>
@@ -321,5 +321,6 @@
 
 </div>
   <script src="js/main.js" defer></script>
+  <script src="js/carta.js" defer></script>
 </body>
 </html>

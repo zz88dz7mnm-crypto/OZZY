@@ -2,3 +2,8 @@
 node_modules/
 .vercel
 *.log
+
+# Claves: nunca al repo
+.env
+.env.*
+!.env.example
