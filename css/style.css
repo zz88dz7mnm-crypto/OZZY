@@ -27,7 +27,7 @@ img { max-width: 100%; }
 .oz-h6:focus-visible { background:#16130f; color:#f4efe4; }
 .oz-h7:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#0a0806; }
 .oz-h8:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#16130f; }
-.oz-h9:focus-visible { background:#f4efe4; color:#16130f; }
+.oz-h9:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#fff; }
 .oz-h10:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f07d18; color:#f4efe4; }
 .oz-h11:focus-visible { border-color:#a8410a; color:#a8410a; }
 .oz-h12:focus-visible, .oz-h13:focus-visible, .oz-h14:focus-visible { text-decoration:underline; }
@@ -48,7 +48,7 @@ img { max-width: 100%; }
   .oz-h6:hover { background:#16130f; color:#f4efe4; }
   .oz-h7:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#0a0806; }
   .oz-h8:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#16130f; }
-  .oz-h9:hover { background:#f4efe4; color:#16130f; }
+  .oz-h9:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#fff; }
   .oz-h10:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #f07d18; color:#f4efe4; }
   /* Instagram: antes se pintaba de negro entero y tapaba el texto. */
   .oz-h11:hover { border-color:#a8410a; color:#a8410a; }
@@ -100,8 +100,9 @@ footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
      la pantalla; se recorta a una altura cómoda. */
   #ubicacion img { max-height: 380px !important; }
 
-  /* Los textos no pasan por debajo del botón flotante de WhatsApp. */
-  #ubicacion > div { padding-bottom: 84px !important; }
+  /* Solo el último bloque de la sección (el mapa) lleva el espacio
+     extra, para que el botón flotante no se le monte encima. */
+  #ubicacion > div:last-child { padding-bottom: 84px !important; }
 
   /* Botón flotante un poco más chico para que moleste menos. */
   .oz-h15 { width: 54px !important; height: 54px !important; right: 14px !important; bottom: 14px !important; }

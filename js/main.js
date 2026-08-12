@@ -17,8 +17,12 @@
   }
   nodes.forEach(function (el) {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1)';
+    // data-reveal="left" entra deslizándose desde el costado; el resto sube.
+    var fromLeft = el.getAttribute('data-reveal') === 'left';
+    el.style.transform = fromLeft ? 'translateX(-64px)' : 'translateY(20px)';
+    el.style.transition = fromLeft
+      ? 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)'
+      : 'opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1)';
   });
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e, i) { if (e.isIntersecting) { show(e.target, i * 70); io.unobserve(e.target); } });
