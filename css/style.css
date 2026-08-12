@@ -1,30 +1,126 @@
-/* OZZY Sushi — reset, keyframes y estados de interacción.
-   La composición vive inline en index.html (una sola fuente de verdad por bloque). */
-html { scroll-behavior: smooth; }
-  body { margin: 0; background: #f4efe4; color: #16130f; -webkit-font-smoothing: antialiased; }
-  * { box-sizing: border-box; }
-  a { color: #16130f; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-  a:hover { color: #a8410a; }
-  ::selection { background: #f07d18; color: #16130f; }
-  :focus-visible { outline: 3px solid #16130f; outline-offset: 3px; }
-  @keyframes ozzy-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
-  [data-marquee] { animation: ozzy-marquee 26s linear infinite; }
-  @media (prefers-reduced-motion: reduce) { [data-marquee] { animation: none; } html { scroll-behavior: auto; } }
+/* OZZY Sushi — reset, keyframes, estados de interacción y ajustes responsive.
+   La composición vive inline en index.html (una sola fuente de verdad por bloque).
+   Acá queda solo lo que un atributo style no puede expresar: hover, focus,
+   keyframes y media queries. Los overrides responsive necesitan !important
+   porque el estilo inline gana por especificidad. */
 
-.oz-h1:hover, .oz-h1:focus-visible { border-color:#16130f; }
-.oz-h2:hover, .oz-h2:focus-visible { border-color:#16130f; }
-.oz-h3:hover, .oz-h3:focus-visible { border-color:#16130f; }
-.oz-h4:hover, .oz-h4:focus-visible { transform:translate(2px,2px); box-shadow:1px 1px 0 #16130f; color:#fff; }
-.oz-h5:hover, .oz-h5:focus-visible { transform:translate(3px,3px); box-shadow:2px 2px 0 #16130f; color:#16130f; }
-.oz-h6:hover, .oz-h6:focus-visible { background:#16130f; color:#f4efe4; }
-.oz-h7:hover, .oz-h7:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#0a0806; }
-.oz-h8:hover, .oz-h8:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#16130f; }
-.oz-h9:hover, .oz-h9:focus-visible { background:#f4efe4; color:#16130f; }
-.oz-h10:hover, .oz-h10:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f07d18; color:#f4efe4; }
-.oz-h11:hover, .oz-h11:focus-visible { background:#16130f; color:#f4efe4; }
-.oz-h12:hover, .oz-h12:focus-visible { text-decoration:underline; }
-.oz-h13:hover, .oz-h13:focus-visible { text-decoration:underline; }
-.oz-h14:hover, .oz-h14:focus-visible { text-decoration:underline; }
-.oz-h15:hover, .oz-h15:focus-visible { transform:translate(2px,2px); box-shadow:1px 1px 0 #16130f; color:#fff; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f4efe4; color: #16130f; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: #16130f; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+::selection { background: #f07d18; color: #16130f; }
+:focus-visible { outline: 3px solid #16130f; outline-offset: 3px; }
+img { max-width: 100%; }
+
+@keyframes ozzy-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+[data-marquee] { animation: ozzy-marquee 26s linear infinite; }
+@media (prefers-reduced-motion: reduce) { [data-marquee] { animation: none; } html { scroll-behavior: auto; } }
+
+/* ---------------------------------------------------------------
+   Estados de foco (teclado): siempre activos, en cualquier device.
+   --------------------------------------------------------------- */
+.oz-h1:focus-visible { border-color:#16130f; }
+.oz-h2:focus-visible { border-color:#16130f; }
+.oz-h3:focus-visible { border-color:#16130f; }
+.oz-h4:focus-visible { transform:translate(2px,2px); box-shadow:1px 1px 0 #16130f; color:#fff; }
+.oz-h5:focus-visible { transform:translate(3px,3px); box-shadow:2px 2px 0 #16130f; color:#16130f; }
+.oz-h6:focus-visible { background:#16130f; color:#f4efe4; }
+.oz-h7:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#0a0806; }
+.oz-h8:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#16130f; }
+.oz-h9:focus-visible { background:#f4efe4; color:#16130f; }
+.oz-h10:focus-visible { transform:translate(2px,2px); box-shadow:2px 2px 0 #f07d18; color:#f4efe4; }
+.oz-h11:focus-visible { border-color:#a8410a; color:#a8410a; }
+.oz-h12:focus-visible, .oz-h13:focus-visible, .oz-h14:focus-visible { text-decoration:underline; }
+.oz-h15:focus-visible { transform:translate(2px,2px); box-shadow:1px 1px 0 #16130f; color:#fff; }
+
+/* ---------------------------------------------------------------
+   Hover: SOLO con mouse real. En touch el navegador deja el :hover
+   "pegado" después de tocar, y botones como el de Instagram quedaban
+   pintados de negro hasta tocar en otro lado.
+   --------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  a:hover { color: #a8410a; }
+  .oz-h1:hover { border-color:#16130f; }
+  .oz-h2:hover { border-color:#16130f; }
+  .oz-h3:hover { border-color:#16130f; }
+  .oz-h4:hover { transform:translate(2px,2px); box-shadow:1px 1px 0 #16130f; color:#fff; }
+  .oz-h5:hover { transform:translate(3px,3px); box-shadow:2px 2px 0 #16130f; color:#16130f; }
+  .oz-h6:hover { background:#16130f; color:#f4efe4; }
+  .oz-h7:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#0a0806; }
+  .oz-h8:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #f4efe4; color:#16130f; }
+  .oz-h9:hover { background:#f4efe4; color:#16130f; }
+  .oz-h10:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 #f07d18; color:#f4efe4; }
+  /* Instagram: antes se pintaba de negro entero y tapaba el texto. */
+  .oz-h11:hover { border-color:#a8410a; color:#a8410a; }
+  .oz-h12:hover, .oz-h13:hover, .oz-h14:hover { text-decoration:underline; }
+  .oz-h15:hover { transform:translate(2px,2px); box-shadow:1px 1px 0 #16130f; color:#fff; }
+}
 
 @media (min-width: 900px) { [data-desktop-nav] { display: flex !important; } }
+
+/* El header es sticky: sin esto, al tocar un link del menú la
+   sección salta hasta arriba y el header le tapa el título. */
+section[id] { scroll-margin-top: 88px; }
+
+/* Links del pie: 19px de alto es imposible de tocar en cualquier
+   pantalla táctil (incluidas tablets), así que el área mínima va
+   en la base, no solo en el breakpoint de celular. */
+footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ===============================================================
+   RESPONSIVE
+   =============================================================== */
+
+/* --- Tablet y abajo: la carta pasa a una sola columna antes de
+       que las filas nombre·····precio queden espachurradas. --- */
+@media (max-width: 900px) {
+  #ubicacion img { max-height: 460px !important; }
+}
+
+/* --- Celular --- */
+@media (max-width: 700px) {
+  /* Hero: con line-height 0.86 el bloque naranja de "Es OZZY." se
+     comía la base de "cualquiera.". El fondo de un span inline se
+     pinta sobre la caja de la fuente (más alta que la línea) y el
+     box-shadow de 6px la estira todavía más, así que hay que
+     aflojar el interlineado Y achicar la sombra. */
+  #inicio h1 { line-height: 1.25 !important; }
+  #inicio h1 span { box-shadow: 0 0 0 3px #f07d18 !important; }
+
+  /* El logo del hero y la foto no necesitan tanto alto en celu. */
+  #inicio img { max-height: 46vh !important; object-fit: contain !important; }
+
+  /* Cómo pedir: quedaba muy apretado. Más aire vertical entre
+     bloque de texto y botón, y entre cada forma de pedido. */
+  #pedi li { padding: 30px 0 !important; gap: 20px !important; }
+  #pedi li:last-child { padding-bottom: 8px !important; }
+  #pedi h3 { margin-bottom: 10px !important; }
+
+  /* Ubicación: la foto es vertical (de celu) y ocupaba casi toda
+     la pantalla; se recorta a una altura cómoda. */
+  #ubicacion img { max-height: 380px !important; }
+
+  /* Los textos no pasan por debajo del botón flotante de WhatsApp. */
+  #ubicacion > div { padding-bottom: 84px !important; }
+
+  /* Botón flotante un poco más chico para que moleste menos. */
+  .oz-h15 { width: 54px !important; height: 54px !important; right: 14px !important; bottom: 14px !important; }
+
+  /* Footer: los links quedaban de 19px de alto, imposibles de tocar.
+     El gap horizontal tiene que ser generoso o se leen como una
+     sola frase corrida. */
+  footer nav { gap: 2px 22px !important; flex-wrap: wrap; }
+  /* Espacio extra abajo para que el botón flotante no se monte
+     sobre la última fila de links. */
+  footer > div { justify-content: flex-start !important; gap: 14px !important; padding-bottom: 76px !important; }
+}
+
+/* --- Celulares chicos (iPhone SE y similares) --- */
+@media (max-width: 380px) {
+  /* La cinta superior es decorativa: a este ancho pesa más de lo
+     que aporta, así que baja de tamaño en vez de gritar. */
+  [data-marquee] > div { font-size: 13px !important; gap: 24px !important; padding-right: 24px !important; }
+
+  /* El header no entra cómodo con logo + botón grande. */
+  header .oz-h4 { padding: 11px 14px !important; font-size: 14px !important; }
+}
